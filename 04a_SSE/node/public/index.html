@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting</title>
+</head>
+<body>
+    <h1>SSE Counting Example</h1>
+
+    <p>Status</p>
+    <div id="server-status"></div>
+
+    <p>Count</p>
+    <div id="server-count"></div>
+
+    <script>
+        const serverSentStatus = document.getElementById("server-status")
+        const serverSentCount = document.getElementById("server-count")
+
+        const eventSource = new EventSource("/counting")
+        eventSource.addEventListener("message", (event) => {
+            console.log(event.data)
+            serverSentCount.textContent = event.data
+        })
+
+        eventSource.addEventListener("open", (event) => {
+            console.log(event.data)
+            serverSentStatus.textContent = "Connected"
+        })
+
+        eventSource.addEventListener("error", (event) => {
+            if (event.target.readyState === EventSource.CLOSED) {
+                serverSentStatusDiv.textContent = 'Connection was closed';
+            } else if (event.target.readyState === EventSource.CONNECTING) {
+                serverSentStatusDiv.textContent = 'Connecting...';
+            } else {
+                serverSentStatusDiv.textContent = 'Error';
+            }
+        });
+
+    </script>
+</body>
+</html>

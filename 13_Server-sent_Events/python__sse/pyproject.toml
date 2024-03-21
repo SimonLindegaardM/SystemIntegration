@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "python_sse"
+version = "0.1.0"
+description = ""
+authors = ["SimonLindegaardM <slm311096@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12.2"
+fastapi = "^0.109.2"
+uvicorn = "^0.27.1"
+jinja2 = "^3.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

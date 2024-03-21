@@ -15,5 +15,11 @@ app.get("/expressData", (req,res) => {
     res.send({message: true});
 })
 
+app.get("/datetime", (req,res) => {
+    const currentDate = new Date()
+    const strDate = currentDate.toDateString()
+    res.send({message: currentDate})
+})
+
 const PORT = 8080
 app.listen(PORT, () => console.log("Server is running", PORT));
