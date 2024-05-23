@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <h2>Basic Form</h2>
+
+    <form action="http://localhost:8080/form" method="post">
+        <label for="username"></label>
+        <input type="text" name="username" placeholder="username">
+
+        <label for="password"></label>
+        <input type="text" name="password" placeholder="password">
+
+        <input type="submit" value="Send form data">
+
+    </form>
+
+    <h2>File Form</h2>
+    <form action="http://localhost:8080/fileform" method="POST" enctype="multipart/form-data">
+        <label for="file">File</label>
+        <input type="file" name="file" accept="image/*">
+
+        <label for="description"></label>
+        <input type="text" name="description">
+
+        <input type="submit" value="Send File">
+    </form>
+
+    <script>
+        const fileinput = document.querySelector('input[type="file"]')
+        
+
+        fileinput.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+
+            const validTypes = ["image/png", "image/svg"];
+            if (!validTypes.includes(file.type))
+            {
+                alert("Not a valid type");
+                fileinput.value = "";
+                return;
+            }
+            
+            const maxSize = 10 * 1024 * 1024;
+            if (file.size > maxSize) {
+                alert(`File too big, max size: ${maxSize}`)
+                fileInput.value = "";
+                return;
+            }
+            console.log(file);
+        })
+    </script>
+
+</body>
+</html>
