@@ -1,0 +1,10 @@
+
+This is the link to the documentation: https://dbdocs.io/Simon%20Mathiasen/WebshopOrder
+
+
+I used Microsoft SQL Server Management Studio to generate the sql script for my database
+
+I thereafter created the dbml file by using the script
+
+I can now generate the documentation for my database
+The command used to create the documentation by using the schema.dbml file: dbdocs build schema.dbml

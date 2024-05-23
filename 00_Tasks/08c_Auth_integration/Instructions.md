@@ -1,0 +1,2 @@
+Navigate to the auth-app and then use 'npm start' to start up the frontend, then we can click on the 'Sign in with Google' button, which will give us a pop-up that asks us to sign in with a google account.
+I am using Firebase as the way to provide authentication.

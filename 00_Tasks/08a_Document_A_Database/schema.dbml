@@ -1,0 +1,26 @@
+Project WebshopOrder {
+  database_type: 'MSSql'
+  Note: '''
+    # Webshop Database
+    **markdown content here**
+  '''
+}
+Table OrderItems {
+  OrderItemID int [pk, increment]
+  Quantity int
+  Price decimal(10,2)
+  OrderID int
+  ProductID int
+  DeletedAt datetime
+}
+
+Table OrderTables {
+  OrderID int [pk, increment]
+  OrderDate datetime
+  TotalAmount decimal(10,2)
+  CustomerID int
+  DeliveryAddressID int
+  DeletedAt datetime
+}
+
+Ref: OrderItems.OrderID > OrderTables.OrderID
